@@ -1,0 +1,112 @@
+<!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="掲示板アプリの開発課題を優先度・進捗・完了条件で整理した一覧。"><title>課題管理 | BulletinBoard Docs</title><link rel="stylesheet" href="style.css?v=8"></head><body><a class="skip" href="#main">本文へスキップ</a><header class="site-header"><div class="header-inner"><a class="site-logo" href="index.html"><span class="logo-mark" aria-hidden="true">B</span><span>BulletinBoard <span style="font-weight:400;color:#64748b">/ Docs</span></span></a><span class="header-meta">Spring Boot · System Design Documentation</span></div></header><div class="site-layout"><nav class="side-nav" aria-label="ドキュメントナビゲーション"><div class="side-heading">DOCUMENTATION</div><a href="index.html" aria-current="page">概要</a><a href="features.html">機能</a><a href="architecture.html">アーキテクチャ</a><a href="database.html">データベース</a><a href="security.html">セキュリティ</a><a href="roadmap.html">開発ロードマップ</a><a href="issues.html" aria-current="page">課題管理</a><div class="side-bottom">設計・実装状況を整理した技術資料<br>最終編集：2026年11月8日</div></nav><main class="content" id="main">
+<div class="breadcrumb"><a href="index.html">ドキュメント</a> / 課題管理</div>
+<div class="eyebrow">PROJECT ISSUE REGISTER</div>
+<h1>開発課題一覧</h1>
+<p class="lead">掲示板アプリの課題を、優先度・確認状況・完了条件で管理するための表です。直近の開発内容を基に整理しています。</p>
+<div class="issue-summary" aria-label="課題サマリー">
+<div><span>課題数</span><strong>16</strong><small>要確認・計画を含む</small></div>
+<div><span>優先度：高</span><strong>7</strong><small>公開前の重要課題</small></div>
+<div><span>確認済み</span><strong>3</strong><small>ビルド・環境準備</small></div>
+</div>
+<div class="callout"><strong>次に取り組む課題：DEP-01</strong><p>本番用 <code>compose.prod.yml</code> の見直し。起動方式、prod設定、公開ポートと秘密情報を点検し、ローカル疎通試験に進みます。</p></div>
+<section class="section" id="open-issues">
+<h2>未完了・確認待ちの課題</h2>
+<p class="section-intro">優先度の高い順に表示しています。<b>「要確認」</b>は未実装の断定ではなく、現在の資料から完了を確認できない状態を表します。</p>
+<div class="issue-table-wrap" role="region" tabindex="0" aria-label="開発課題一覧表。横方向にスクロールできます">
+<table class="issue-table"><thead><tr><th scope="col">ID</th><th scope="col">優先度</th><th scope="col">分野</th><th scope="col">課題・完了条件</th><th scope="col">状態</th></tr></thead>
+<tbody><tr id="dep-01">
+<td class="id-cell"><a href="#dep-01">DEP-01</a></td>
+<td><span class="issue-priority high">高</span></td>
+<td><span class="issue-category">インフラ</span></td>
+<td class="issue-details"><strong>本番用Composeを整理</strong><p>開発用Maven起動をやめ、WARイメージとprod設定を使用。MySQLのポートを外部公開しない。</p><div class="issue-done"><b>完了条件：</b>config検証と構成レビューが完了</div></td>
+<td><span class="issue-state verify">要確認</span></td></tr><tr id="sec-01">
+<td class="id-cell"><a href="#sec-01">SEC-01</a></td>
+<td><span class="issue-priority high">高</span></td>
+<td><span class="issue-category">セキュリティ</span></td>
+<td class="issue-details"><strong>本番シークレットの管理</strong><p>固定パスワードの排除、.envと.gitignoreの確認、公開履歴にある秘密情報の対処。</p><div class="issue-done"><b>完了条件：</b>Gitの機密情報混入がなく安全な設定で起動</div></td>
+<td><span class="issue-state verify">要確認</span></td></tr><tr id="dep-02">
+<td class="id-cell"><a href="#dep-02">DEP-02</a></td>
+<td><span class="issue-priority high">高</span></td>
+<td><span class="issue-category">インフラ</span></td>
+<td class="issue-details"><strong>Spring Boot＋MySQLの起動・疎通試験</strong><p>Composeで同時起動し、DB接続、HTTP応答、ログと永続化を確認。</p><div class="issue-done"><b>完了条件：</b>アプリが応答しDBへ読み書きできる</div></td>
+<td><span class="issue-state verify">要確認</span></td></tr><tr id="db-01">
+<td class="id-cell"><a href="#db-01">DB-01</a></td>
+<td><span class="issue-priority high">高</span></td>
+<td><span class="issue-category">DB</span></td>
+<td class="issue-details"><strong>Flywayマイグレーションの整合性確認</strong><p>過去に検討したチェックサム不一致の再発有無を確認し、マイグレーションを安全に管理。</p><div class="issue-done"><b>完了条件：</b>既存・新規DBでマイグレーションが正常完了</div></td>
+<td><span class="issue-state verify">再確認</span></td></tr><tr id="dep-03">
+<td class="id-cell"><a href="#dep-03">DEP-03</a></td>
+<td><span class="issue-priority high">高</span></td>
+<td><span class="issue-category">インフラ</span></td>
+<td class="issue-details"><strong>EC2へのデプロイと疎通確認</strong><p>イメージのCPUアーキテクチャを合わせ、EC2上でコンテナを起動・検証。</p><div class="issue-done"><b>完了条件：</b>EC2上でアプリとDBが安定稼働</div></td>
+<td><span class="issue-state verify">要確認</span></td></tr><tr id="sec-02">
+<td class="id-cell"><a href="#sec-02">SEC-02</a></td>
+<td><span class="issue-priority high">高</span></td>
+<td><span class="issue-category">セキュリティ</span></td>
+<td class="issue-details"><strong>Nginx＋HTTPSで公開</strong><p>TLS証明書、リバースプロキシ、セキュリティグループの公開範囲を設定。</p><div class="issue-done"><b>完了条件：</b>HTTPSでアクセスでき不要ポートが外部非公開</div></td>
+<td><span class="issue-state planned">計画</span></td></tr><tr id="sec-03">
+<td class="id-cell"><a href="#sec-03">SEC-03</a></td>
+<td><span class="issue-priority high">高</span></td>
+<td><span class="issue-category">セキュリティ</span></td>
+<td class="issue-details"><strong>認証・認可の動作検証</strong><p>Spring Security、CSRF、XSS対策、他人の投稿・コメントへのアクセス制御を確認。</p><div class="issue-done"><b>完了条件：</b>無権限操作が拒否されるテストを通過</div></td>
+<td><span class="issue-state verify">要確認</span></td></tr><tr id="app-01">
+<td class="id-cell"><a href="#app-01">APP-01</a></td>
+<td><span class="issue-priority medium">中</span></td>
+<td><span class="issue-category">バックエンド</span></td>
+<td class="issue-details"><strong>Spring Boot版の会員登録・ログイン検証</strong><p>仮登録・トークン期限・本登録・ログイン・ログアウトを動作確認。従来Servlet版と区別する。</p><div class="issue-done"><b>完了条件：</b>主要認証フローの正常系と異常系が確認済み</div></td>
+<td><span class="issue-state verify">要確認</span></td></tr><tr id="app-02">
+<td class="id-cell"><a href="#app-02">APP-02</a></td>
+<td><span class="issue-priority medium">中</span></td>
+<td><span class="issue-category">バックエンド</span></td>
+<td class="issue-details"><strong>投稿・コメントCRUDと論理削除を確認</strong><p>作成・編集・削除に加え、削除済みデータが一覧・詳細に出ないか検証。</p><div class="issue-done"><b>完了条件：</b>操作と権限、deleted_atのテストを通過</div></td>
+<td><span class="issue-state verify">要確認</span></td></tr><tr id="app-03">
+<td class="id-cell"><a href="#app-03">APP-03</a></td>
+<td><span class="issue-priority medium">中</span></td>
+<td><span class="issue-category">バックエンド</span></td>
+<td class="issue-details"><strong>エラーハンドリングと403応答</strong><p>PostAccessDeniedExceptionとGlobalExceptionHandlerなどの例外処理を点検。</p><div class="issue-done"><b>完了条件：</b>他人の投稿操作が403で適切に処理される</div></td>
+<td><span class="issue-state verify">再確認</span></td></tr><tr id="test-01">
+<td class="id-cell"><a href="#test-01">TEST-01</a></td>
+<td><span class="issue-priority medium">中</span></td>
+<td><span class="issue-category">テスト</span></td>
+<td class="issue-details"><strong>JUnit・テストデータの整備</strong><p>テストデータ投入、投稿ソート、一覧取得、ページングの境界条件を検証。</p><div class="issue-done"><b>完了条件：</b>主要ケースが再現可能な自動テストを通過</div></td>
+<td><span class="issue-state verify">要確認</span></td></tr><tr id="ops-01">
+<td class="id-cell"><a href="#ops-01">OPS-01</a></td>
+<td><span class="issue-priority medium">中</span></td>
+<td><span class="issue-category">運用</span></td>
+<td class="issue-details"><strong>MySQLバックアップと復元試験</strong><p>Docker Volumeだけに頼らず、バックアップの保存・復元手順を作成。</p><div class="issue-done"><b>完了条件：</b>バックアップからテスト環境へ復元できる</div></td>
+<td><span class="issue-state planned">計画</span></td></tr><tr id="ops-02">
+<td class="id-cell"><a href="#ops-02">OPS-02</a></td>
+<td><span class="issue-priority medium">中</span></td>
+<td><span class="issue-category">運用</span></td>
+<td class="issue-details"><strong>ログ・障害対応手順を用意</strong><p>docker logs、起動失敗時の確認、再起動方法を文書化。</p><div class="issue-done"><b>完了条件：</b>障害調査・復旧の手順を実施して確認</div></td>
+<td><span class="issue-state planned">計画</span></td></tr><tr id="api-01">
+<td class="id-cell"><a href="#api-01">API-01</a></td>
+<td><span class="issue-priority low">低</span></td>
+<td><span class="issue-category">機能拡張</span></td>
+<td class="issue-details"><strong>「もっと見る」RESTページング</strong><p>10件単位の取得、ソート、hasNext / last判定、ブラウザ側の追加表示を検討。</p><div class="issue-done"><b>完了条件：</b>最後のページまで重複なく表示できる</div></td>
+<td><span class="issue-state planned">計画</span></td></tr><tr id="doc-01">
+<td class="id-cell"><a href="#doc-01">DOC-01</a></td>
+<td><span class="issue-priority low">低</span></td>
+<td><span class="issue-category">設計資料</span></td>
+<td class="issue-details"><strong>Spring Boot版EntityとER図を照合</strong><p>公開資料のm_users等の概念図を、実際のEntity・Flyway DDLと突き合わせる。</p><div class="issue-done"><b>完了条件：</b>設計資料と実装の差分が解消された</div></td>
+<td><span class="issue-state verify">要確認</span></td></tr><tr id="mail-01">
+<td class="id-cell"><a href="#mail-01">MAIL-01</a></td>
+<td><span class="issue-priority low">低</span></td>
+<td><span class="issue-category">機能拡張</span></td>
+<td class="issue-details"><strong>本番メール送信方式の選定</strong><p>MailHogは開発用。本番用SES等の採用と認証メール送信フローを確認。</p><div class="issue-done"><b>完了条件：</b>採用方式を決定して送信試験が完了</div></td>
+<td><span class="issue-state planned">検討</span></td></tr></tbody></table></div>
+</section>
+<section class="section" id="done-issues">
+<h2>確認済みの作業</h2>
+<div class="issue-table-wrap"><table class="issue-table done-table"><thead><tr><th scope="col">ID</th><th scope="col">分野</th><th scope="col">作業・確認根拠</th><th scope="col">状態</th></tr></thead><tbody><tr><td class="id-cell">BLD-01</td><td>ビルド</td><td><strong>Spring BootのWAR生成</strong><p class="issue-muted">MavenでBUILD SUCCESSを確認</p></td><td><span class="issue-state completed">確認済み</span></td></tr><tr><td class="id-cell">BLD-02</td><td>コンテナ</td><td><strong>Dockerイメージ作成</strong><p class="issue-muted">bulletinboard:1.0が一覧に表示</p></td><td><span class="issue-state completed">確認済み</span></td></tr><tr><td class="id-cell">INF-00</td><td>AWS</td><td><strong>EC2・SSM・Dockerの準備</strong><p class="issue-muted">セットアップの履歴を確認（アプリ公開とは別）</p></td><td><span class="issue-state completed">確認済み</span></td></tr></tbody></table></div>
+</section>
+<section class="section">
+<h2>管理のルール</h2>
+<div class="split">
+<div class="info-card"><span class="kicker">PRIORITY</span><h3>優先度</h3><p><b>高：</b>公開前の前提条件や安全性。<br><b>中：</b>基本機能の品質・運用性。<br><b>低：</b>将来の改善・資料整備。</p></div>
+<div class="info-card"><span class="kicker">STATUS</span><h3>状態</h3><p><b>要確認：</b>実装や検証結果を確認できていない。<br><b>計画・検討：</b>実施予定または設計選定中。<br><b>確認済み：</b>実施結果の履歴がある。</p></div>
+</div>
+<p class="note-text">これはGitHub Pages上の<strong>静的な課題一覧</strong>です。GitHub Issuesとの自動同期や、表からの編集・保存機能はありません。今後の開発に合わせてHTMLと <a href="https://github.com/hiroki0909/bulletinboard-docs/blob/main/TASKS.md">TASKS.md</a> を更新します。</p>
+</section>
+<footer class="site-footer"><p>基準日：2026年11月8日。課題の優先順位は現時点の提案であり、実装結果の再確認に応じて更新します。</p><a href="roadmap.html">開発ロードマップ</a><a href="index.html">概要に戻る</a></footer>
+</main></div></body></html>
