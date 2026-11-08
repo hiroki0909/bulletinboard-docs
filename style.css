@@ -7,3 +7,37 @@
 
 /* Technology color system and iconography */
 :root{--app:#245cc2;--app-bg:#eaf2ff;--db:#187548;--db-bg:#e7f6ed;--infra:#7045b8;--infra-bg:#f0ebff;--security:#a65b12;--security-bg:#fff2e2;--neutral:#586779;--neutral-bg:#f0f3f6}.tech-icon{width:28px;height:28px;flex:0 0 28px;display:block}.tech-app,.tech-post{--tech:var(--app);--tech-bg:var(--app-bg)}.tech-db{--tech:var(--db);--tech-bg:var(--db-bg)}.tech-infra{--tech:var(--infra);--tech-bg:var(--infra-bg)}.tech-security{--tech:var(--security);--tech-bg:var(--security-bg)}.tech-browser{--tech:var(--neutral);--tech-bg:var(--neutral-bg)}.tech-legend{display:flex;flex-wrap:wrap;gap:9px;margin:22px 0 29px}.legend-item{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:5px;background:var(--tech-bg);color:var(--tech);font-weight:750;font-size:13px;border:1px solid #d8e0e9}.legend-item .tech-icon{width:19px;height:19px;flex-basis:19px}.hero-stats>div{border-top:4px solid var(--tech,var(--border));background:linear-gradient(180deg,var(--tech-bg,#fff),#fff 75%)}.hero-stats .tech-icon{color:var(--tech);margin-bottom:5px}.hero-stats strong{color:var(--tech)}.process-item{border-top:4px solid var(--tech,var(--border));background:linear-gradient(180deg,var(--tech-bg,#fff),#fff 80%)}.process-item .tech-icon{color:var(--tech);margin-bottom:4px}.process-item strong{color:var(--tech,var(--text))}.infra-services>div{border-top:4px solid var(--tech,var(--border));background:var(--tech-bg,#f8fbfe)}.infra-services .tech-icon{color:var(--tech);margin:2px 0 5px}.infra-services strong{color:var(--tech)}.entity-table{border-top:4px solid var(--db)}.entity-title{background:var(--db-bg);color:var(--db)}.entity-title .tech-icon{display:inline-block;vertical-align:middle;width:19px;height:19px;margin-right:5px;color:var(--db)}.zone{border-top:4px solid var(--tech,var(--border));background:var(--tech-bg,#fff)}.zone .tech-icon{color:var(--tech)}.zone strong{color:var(--tech)}.feature-row .tech-icon{color:var(--tech,var(--app));margin-top:2px}.feature-row .feature-number{display:none}.feature-row>div{flex:1}.info-card{border-top:4px solid var(--tech,var(--border));background:linear-gradient(180deg,var(--tech-bg,#fff),#fff 75%)}.info-card .tech-icon{color:var(--tech);margin-bottom:9px}.link-tile{border-top:3px solid var(--tech,var(--border))}.link-tile .tech-icon{color:var(--tech);width:27px;height:27px}.timeline-index{border-color:var(--tech,#a5c2df);background:var(--tech-bg,#eaf3fc);color:var(--tech,#005bac)}@media(max-width:720px){.tech-legend{gap:6px}.legend-item{font-size:12px;padding:6px 9px}.process-item{min-width:165px}}
+
+/* Connected architecture diagrams: self-contained, responsive, technology-coded SVG */
+.diagram-board{border:1px solid #d7e1ed;border-radius:12px;background:#fff;margin:22px 0 30px;overflow:hidden;box-shadow:0 8px 28px rgba(25,51,82,.055)}
+.diagram-board-heading{padding:22px 25px 16px;border-bottom:1px solid #e6edf5}
+.diagram-kicker{font-size:11px;color:#5a718b;font-weight:800;letter-spacing:.12em;display:block;margin-bottom:6px}
+.diagram-board-heading strong{font-size:20px;display:block}
+.diagram-board-heading p{font-size:13px;color:#53657a;margin:4px 0 0}
+.diagram-scroll{overflow-x:auto;padding:14px 14px 8px;background:linear-gradient(180deg,#fff,#f7faff)}
+.diagram-scroll:focus-visible{outline:3px solid #e89d16;outline-offset:-3px}
+.architecture-svg{width:100%;height:auto;min-width:650px;display:block;font-family:-apple-system,BlinkMacSystemFont,"Noto Sans JP",sans-serif}
+.svg-frame rect{fill:#f2edff;stroke:#9c81db;stroke-width:2;stroke-dasharray:7 4}
+.svg-frame text{fill:#6441a7;font-size:14px;font-weight:800}
+.svg-frame.docker rect{fill:#fff;stroke:#b6a4df;stroke-width:1.5;stroke-dasharray:5 5}
+.svg-node rect:first-child{stroke-width:1.6}
+.svg-node.app rect:first-child{fill:#eaf2ff;stroke:#7ba6eb}
+.svg-node.db rect:first-child{fill:#e7f6ed;stroke:#78bc94}
+.svg-node.infra rect:first-child{fill:#f0ebff;stroke:#b5a0e3}
+.svg-node.security rect:first-child{fill:#fff2e2;stroke:#e4b67c}
+.svg-node.browser rect:first-child{fill:#f0f3f6;stroke:#a8b4c3}
+.svg-icon-bg{fill:#fff;stroke:none!important}
+.svg-symbol{font-size:25px;font-weight:800;fill:#2e61bb}
+.svg-node.db .svg-symbol{fill:#187548}
+.svg-node.infra .svg-symbol{fill:#7045b8}
+.svg-node.security .svg-symbol{fill:#a65b12}
+.svg-node.browser .svg-symbol{fill:#5b6c80}
+.svg-title{font-size:16px;font-weight:800;fill:#1f3148}
+.svg-sub{font-size:11.5px;fill:#4d6076}
+.svg-edge path{stroke:#64748b;stroke-width:1.7;fill:none}
+.svg-edge text{font-size:11px;fill:#53677e}
+.svg-return{stroke:#8195ad;stroke-width:1.6;fill:none;stroke-dasharray:5 5}
+.svg-note{font-size:12px;fill:#586e87}
+.diagram-key{display:flex;flex-wrap:wrap;gap:14px;padding:13px 22px;background:#fff;border-top:1px solid #e6edf5;font-size:12px;font-weight:700}
+.key-app{color:#245cc2}.key-db{color:#187548}.key-infra{color:#7045b8}.key-security{color:#a65b12}.key-plan{color:#657488}
+@media(max-width:720px){.diagram-board-heading{padding:16px}.diagram-scroll{padding:8px}.architecture-svg{min-width:610px}.diagram-key{gap:9px;padding:12px;font-size:11px}}
